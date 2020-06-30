@@ -11,10 +11,13 @@ import eu.europa.esig.dss.pades.signature.PAdESService;
 import eu.europa.esig.dss.test.signature.PKIFactoryAccess;
 import eu.europa.esig.dss.validation.CommonCertificateVerifier;
 
+import java.io.IOException;
+
 public class PadesTest extends PKIFactoryAccess {
     private DSSDocument documentToSign;
     private PAdESSignatureParameters parameters;
     private PAdESService service;
+    private CommonCertificateVerifier commonCertificateVerifier;
 
     public static void main(String[] args) {
 
@@ -24,28 +27,26 @@ public class PadesTest extends PKIFactoryAccess {
     }
 
     private void testSign() {
+        init();
+        DSSDocument signedDocument = sign();
+        try {
+            signedDocument.save("./signed.pdf");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void init() {
         this.documentToSign = new InMemoryDocument(PadesTest.class.getResourceAsStream("/sample.pdf"));
 
         parameters = new PAdESSignatureParameters();
-// We choose the level of the signature (-B, -T, -LT, -LTA).
         parameters.setSignatureLevel(SignatureLevel.PAdES_BASELINE_B);
-// We set the digest algorithm to use with the signature algorithm. You must use the
-// same parameter when you invoke the method sign on the token. The default value is
-// SHA256
         parameters.setDigestAlgorithm(DigestAlgorithm.SHA256);
-
-// We set the signing certificate
         parameters.setSigningCertificate(getSigningCert());
-// We set the certificate chain
         parameters.setCertificateChain(getCertificateChain());
-
-// Create common certificate verifier
-        CommonCertificateVerifier commonCertificateVerifier = new CommonCertificateVerifier();
-// Create PAdESService for signature
+        commonCertificateVerifier = new CommonCertificateVerifier();
         service = new PAdESService(getCompleteCertificateVerifier());
-        service.setTspSource(getSelfSignedTsa());
-// Get the SignedInfo segment that need to be signed.
-        DSSDocument signedDocument = sign();
+        // service.setTspSource(getSelfSignedTsa());
     }
 
     private DSSDocument sign() {

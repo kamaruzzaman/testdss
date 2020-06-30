@@ -12,6 +12,7 @@
         <dss.version>5.6</dss.version>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
+        <digi-dss.version>5.5.d4j.1</digi-dss.version>
     </properties>
 
     <dependencies>
@@ -20,7 +21,7 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.5.2</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>eu.europa.ec.joinup.sd-dss</groupId>
             <artifactId>dss-utils</artifactId>
             <version>${dss.version}</version>
@@ -39,6 +40,24 @@
             <groupId>eu.europa.ec.joinup.sd-dss</groupId>
             <artifactId>dss-test</artifactId>
             <version>${dss.version}</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.digidoc4j.dss</groupId>
+            <artifactId>dss-pades-pdfbox</artifactId>
+            <version>${digi-dss.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.digidoc4j.dss</groupId>
+            <artifactId>dss-test</artifactId>
+            <version>${digi-dss.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.digidoc4j.dss</groupId>
+            <artifactId>dss-pades</artifactId>
+            <version>${digi-dss.version}</version>
         </dependency>
     </dependencies>
 
