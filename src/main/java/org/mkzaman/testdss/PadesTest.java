@@ -43,7 +43,7 @@ public class PadesTest extends PKIFactoryAccess {
         parameters.setSignatureLevel(SignatureLevel.PAdES_BASELINE_B);
         parameters.setDigestAlgorithm(DigestAlgorithm.SHA256);
         parameters.setSigningCertificate(getSigningCert());
-        parameters.setCertificateChain(getCertificateChain());
+        // parameters.setCertificateChain(getCertificateChain());
         commonCertificateVerifier = new CommonCertificateVerifier();
         service = new PAdESService(getCompleteCertificateVerifier());
         // service.setTspSource(getSelfSignedTsa());
