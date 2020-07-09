@@ -1,4 +1,4 @@
-package org.mkzaman;
+package org.mkzaman.testdss;
 
 import eu.europa.esig.dss.enumerations.DigestAlgorithm;
 import eu.europa.esig.dss.enumerations.SignatureLevel;
