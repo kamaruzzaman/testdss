@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Oct 05 16:59:47 CEST 2020
+https\://repo.maven.apache.org/maven2/.lastUpdated=1601909987459
+@default-cefdigital-https\://ec.europa.eu/cefdigital/artifact/content/repositories/esignaturedss/.lastUpdated=1601909102337
+https\://ec.europa.eu/cefdigital/artifact/content/repositories/esignaturedss/.error=Could not transfer artifact eu.europa.ec.joinup.sd-dss\:dss-document\:jar\:5.7 from/to cefdigital (https\://ec.europa.eu/cefdigital/artifact/content/repositories/esignaturedss/)\: Transfer failed for https\://ec.europa.eu/cefdigital/artifact/content/repositories/esignaturedss/eu/europa/ec/joinup/sd-dss/dss-document/5.7/dss-document-5.7.jar
+https\://repo.maven.apache.org/maven2/.error=
